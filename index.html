@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Krishna Jha</title>
+  <meta name="description"
+    content="Portfolio of Krishna Jha — ECE student at NIT Calicut, full-stack developer, and electronics enthusiast crafting futuristic digital experiences." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <canvas class="scene-canvas" id="scene-canvas" aria-hidden="true"></canvas>
+  <div class="noise"></div>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <div class="ambient ambient-three"></div>
+
+
+
+
+  <header class="site-header glass">
+    <a class="brand" href="#top">
+      <span class="brand__orb"></span>
+      <span>
+        <strong>Krishna Jha</strong>
+        <small>ECE • Full Stack • UI/UX</small>
+      </span>
+    </a>
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav class="nav" id="main-nav">
+      <a href="#about">About</a>
+      <a href="#journey">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#interests">Interests</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero section">
+      <div class="hero__grid">
+        <div class="hero__content reveal">
+          <p class="eyebrow">Full Stack Developer & Electronics Engineer</p>
+          <h1>
+            I craft experiences that feel
+            <span class="type-line">
+              <span id="typed-text"></span><span class="typed-cursor"></span>
+            </span>
+          </h1>
+          <p class="hero__lede">
+            Electronics & Communication Engineering student passionate about
+            full-stack development, immersive UI/UX, and building futuristic
+            digital experiences. I enjoy combining engineering fundamentals
+            with creative software development to create products that are
+            both technically robust and visually engaging.
+          </p>
+          <div class="hero__actions">
+            <a class="button magnetic" href="#projects">
+              <span>Explore Projects</span>
+            </a>
+            <a class="button button--ghost magnetic" href="https://github.com/bip-krishna" target="_blank"
+              rel="noreferrer">
+              <span>GitHub</span>
+            </a>
+            <a class="button button--ghost magnetic" href="https://www.linkedin.com/in/krishnajha29/" target="_blank"
+              rel="noreferrer">
+              <span>LinkedIn</span>
+            </a>
+          </div>
+          <div class="hero__metrics">
+            <article class="metric glass reveal">
+              <strong>15+</strong>
+              <span>Projects completed</span>
+            </article>
+            <article class="metric glass reveal">
+              <strong>500+</strong>
+              <span>Linkedin Connections</span>
+            </article>
+            <article class="metric glass reveal">
+              <strong>50000+</strong>
+              <span>Lines of Code written</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="hero__visual reveal">
+          <div class="control-room glass">
+            <div class="control-room__header">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div class="control-room__stage">
+              <div class="radar"></div>
+              <div class="floating-card card-primary">
+                <p>Focus</p>
+                <strong>Full Stack Development</strong>
+                <small>HTML, CSS, JavaScript, React, Next.js, Node.js, APIs</small>
+              </div>
+              <div class="floating-card card-secondary">
+                <p>Foundation</p>
+                <strong>Electronics & Communication</strong>
+                <small>Semiconductors, circuits, signals</small>
+              </div>
+              <div class="floating-card card-tertiary">
+                <p>Passion</p>
+                <strong>Futuristic digital products</strong>
+                <small>Immersive UI, 3D concepts, AI workflows</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="marquee section" id="marquee">
+      <div class="marquee-container">
+        <div class="marquee-row" id="marquee-row-1">
+          <img src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif" loading="lazy" alt="Preview">
+          <img src="https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif" loading="lazy" alt="Preview">
+          <img src="https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif" loading="lazy" alt="Preview">
+          <img src="https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif" loading="lazy" alt="Preview">
+          <img src="https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif" loading="lazy" alt="Preview">
+          <img src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif" loading="lazy" alt="Preview">
+          <img src="https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif" loading="lazy" alt="Preview">
+          <img src="https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif" loading="lazy" alt="Preview">
+          <img src="https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif" loading="lazy" alt="Preview">
+          <img src="https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif" loading="lazy" alt="Preview">
+          <img src="https://motionsites.ai/assets/hero-designpro-preview-D8c5_een.gif" loading="lazy" alt="Preview">
+        </div>
+        <div class="marquee-row" id="marquee-row-2">
+          <img src="https://motionsites.ai/assets/hero-stellar-ai-preview-D3HL6bw1.gif" loading="lazy" alt="Preview">
+          <img src="https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif" loading="lazy" alt="Preview">
+          <img src="https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif" loading="lazy" alt="Preview">
+          <img src="https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif" loading="lazy" alt="Preview">
+          <img src="https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif" loading="lazy" alt="Preview">
+          <img src="https://motionsites.ai/assets/hero-planet-orbit-preview-DWAP8Z1P.gif" loading="lazy" alt="Preview">
+          <img src="https://motionsites.ai/assets/hero-new-era-preview-CocuDUm9.gif" loading="lazy" alt="Preview">
+          <img src="https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif" loading="lazy" alt="Preview">
+          <img src="https://motionsites.ai/assets/hero-luminex-preview-CxOP7ce6.gif" loading="lazy" alt="Preview">
+          <img src="https://motionsites.ai/assets/hero-celestia-preview-0yO3jXO8.gif" loading="lazy" alt="Preview">
+        </div>
+      </div>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="about-3d-scene">
+        <img src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png" class="about-icon moon-icon reveal" alt="Moon 3D">
+        <img src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png" class="about-icon object-icon reveal" alt="3D Object">
+        <img src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png" class="about-icon lego-icon reveal" alt="Lego 3D">
+        <img src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/Group_134-1.2e04f3ce.png" class="about-icon group-icon reveal" alt="3D Group">
+      </div>
+      <div class="about-content reveal">
+        <h2 class="hero-heading about-heading">About me</h2>
+        <div class="about-animated-text" id="animated-about-text">
+          I'm an Electronics & Communication Engineering student with a strong interest in software development, interactive web technologies, and digital product design. My work combines engineering problem-solving with modern development practices, allowing me to build experiences that are both technically efficient and visually immersive.
+        </div>
+        <div class="about-actions">
+          <a class="button button-gradient magnetic" href="#contact">
+            <span>Contact Me</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="work section" id="work">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Experience</p>
+        <h2 class="hero-heading">Where I've Worked</h2>
+      </div>
+      <div class="work__layout reveal">
+        <nav class="work__tabs" role="tablist" aria-label="Work experience tabs">
+          <button class="work__tab is-active" role="tab" aria-selected="true" data-tab="w1">BSERC</button>
+          <button class="work__tab" role="tab" aria-selected="false" data-tab="w0">.</button>
+          <button class="work__tab" role="tab" aria-selected="false" data-tab="w2">.</button>
+          <button class="work__tab" role="tab" aria-selected="false" data-tab="w3">.</button>
+          <button class="work__tab" role="tab" aria-selected="false" data-tab="w4">.</button>
+          <button class="work__tab" role="tab" aria-selected="false" data-tab="w5">.</button>
+        </nav>
+        <div class="work__panels">
+
+          <article class="work__panel" data-panel="w0">
+            <h3><span class="work__role"> </span> <span class="work__at">at</span> <a class="work__company"
+                href="coming soon" target="_blank" rel="noreferrer">Coming soon</a></h3>
+            <p class="work__date"> </p>
+            <ul class="work__list">
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </article>
+
+          <article class="work__panel is-active" data-panel="w1">
+            <h3><span class="work__role">Research Intern</span> <span class="work__at">at</span> <a
+                class="work__company" href="#" target="_blank" rel="noreferrer">BSERC</a></h3>
+            <p class="work__date">Nov 2025 – Jan 2026</p>
+            <ul class="work__list">
+              <li>Explored multiple high-impact domains including drones, aircraft design, robotics, rocketry, and space
+                systems.</li>
+              <li>Designed and simulated a 3-DOF Robotic Manipulator Arm using MATLAB & Simulink, focusing on kinematic
+                modeling, motion planning, and system visualization.
+              </li>
+              <li>Developed control logic and performed simulation-based testing for validating robotic motion and task
+                execution</li>
+              <li>Collaborated in a structured research-driven environment emphasizing innovation, creativity, and
+                grassroots technology development.</li>
+            </ul>
+          </article>
+
+          <article class="work__panel" data-panel="w2">
+            <h3><span class="work__role"> </span> <span class="work__at">at</span> <a class="work__company" href="#"
+                target="_blank" rel="noreferrer"> </a></h3>
+            <p class="work__date"> </p>
+            <ul class="work__list">
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </article>
+
+          <article class="work__panel" data-panel="w3">
+            <h3><span class="work__role"> </span> <span class="work__at">at</span> <a class="work__company" href="#"
+                target="_blank" rel="noreferrer"> </a></h3>
+            <p class="work__date"> </p>
+            <ul class="work__list">
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </article>
+
+          <article class="work__panel" data-panel="w4">
+            <h3><span class="work__role"> </span> <span class="work__at">at</span> <a class="work__company" href=" "
+                target="_blank" rel="noreferrer"> </a>
+            </h3>
+            <p class="work__date"> </p>
+            <a class="work__cert" href="#" target="_blank" rel="noreferrer"> </a>
+            <ul class="work__list">
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </article>
+
+          <article class="work__panel" data-panel="w5">
+            <h3><span class="work__role"> </span> <span class="work__at">at</span> <a class="work__company" href="#"
+                target="_blank" rel="noreferrer"> </a></h3>
+            <p class="work__date"> </p>
+            <a class="work__cert" href="#" target="_blank" rel="noreferrer"> </a>
+            <ul class="work__list">
+              <li></li>
+              <li></li>
+              <li></li>
+            </ul>
+          </article>
+
+        </div>
+      </div>
+    </section>
+    <!-- 
+    <section class="experience section" id="education">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Education</p>
+
+      </div>
+      <div class="timeline">
+        <article class="timeline__item glass reveal">
+          <span class="timeline__year">NIT Calicut</span>
+          <h3>B.Tech in Electronics & Communication Engineering</h3>
+          <p>
+            Building a strong foundation in electronics, communication systems,
+            semiconductor physics, embedded concepts, and modern computational
+            technologies while actively developing software engineering and
+            product-building skills.
+          </p>
+        </article>
+      </div>
+    </section> -->
+
+    <section class="experience section" id="journey">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Journey</p>
+        <h3>Engineering + Development: a cross-disciplinary path.</h3>
+      </div>
+      <div class="timeline">
+        <article class="timeline__item glass reveal">
+          <span class="timeline__year">Foundation</span>
+          <h3>Electronics & engineering fundamentals</h3>
+          <p>
+            Started with core engineering — circuit analysis, semiconductor
+            devices, signals & systems, and analog/digital electronics.
+          </p>
+        </article>
+        <article class="timeline__item glass reveal">
+          <span class="timeline__year">Exploration</span>
+          <h3>Expanded into software development & UI/UX</h3>
+          <p>
+            Discovered a passion for building web applications and designing
+            interfaces that feel intuitive and visually immersive.
+          </p>
+        </article>
+        <article class="timeline__item glass reveal">
+          <span class="timeline__year">Growth</span>
+          <h3>Full stack development & creative frontend</h3>
+          <p>
+            Built projects with React, Next.js, Node.js, and started
+            experimenting with 3D concepts, motion design, and AI-assisted
+            development workflows.
+          </p>
+        </article>
+        <article class="timeline__item glass reveal">
+          <span class="timeline__year">Now</span>
+          <h3>Combining analytical engineering with creative experiences</h3>
+          <p>
+            Today, I enjoy combining analytical engineering thinking with creative
+            frontend experiences to build futuristic digital products.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="projects section" id="projects">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Featured Projects</p>
+        <h2 class="hero-heading">The portfolio centerpiece: projects curated from GitHub.</h2>
+      </div>
+      <div class="project-grid" id="project-grid"></div>
+      <div class="projects__actions" id="projects-actions"></div>
+    </section>
+
+    <section class="skills section" id="skills">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Skills & Stack</p>
+        <h2 class="hero-heading">A cross-disciplinary toolkit built for modern products.</h2>
+      </div>
+      <div class="skills__layout">
+        <article class="glass skill-panel reveal">
+          <h3>Software Development</h3>
+          <div class="pill-row">
+            <span class="pill">React.js</span>
+            <span class="pill">Next.js</span>
+            <span class="pill">TypeScript</span>
+            <span class="pill">JavaScript</span>
+            <span class="pill">Node.js</span>
+            <span class="pill">Express.js</span>
+            <span class="pill">REST APIs</span>
+          </div>
+        </article>
+        <article class="glass skill-panel reveal">
+          <h3>Electronics & Engineering</h3>
+          <div class="pill-row">
+            <span class="pill">Semiconductor Devices</span>
+            <span class="pill">Analog Electronics</span>
+            <span class="pill">Digital Electronics</span>
+            <span class="pill">Communication Systems</span>
+            <span class="pill">MOSFET & BJT</span>
+            <span class="pill">Signals & Systems</span>
+            <span class="pill">Circuit Analysis</span>
+          </div>
+        </article>
+        <article class="glass skill-panel reveal">
+          <h3>Creative & UI/UX</h3>
+          <div class="pill-row">
+            <span class="pill">UI/UX Design</span>
+            <span class="pill">Glassmorphism</span>
+            <span class="pill">Motion Design</span>
+            <span class="pill">3D Web Concepts</span>
+            <span class="pill">Figma</span>
+            <span class="pill">Interactive Storytelling</span>
+          </div>
+        </article>
+        <article class="glass skill-panel reveal">
+          <h3>Tools & Platforms</h3>
+          <div class="pill-row">
+            <span class="pill">Git & GitHub</span>
+            <span class="pill">VS Code</span>
+            <span class="pill">Vercel</span>
+            <span class="pill">Firebase</span>
+            <span class="pill">Postman</span>
+            <span class="pill">Docker</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="achievements section" id="interests">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Technical Interests</p>
+        <h2 class="hero-heading">Areas I actively explore and build in.</h2>
+      </div>
+      <div class="achievement-grid">
+        <article class="achievement glass reveal">
+          <strong>Full Stack Dev</strong>
+          <p>Building end-to-end web applications with modern frameworks and robust backend APIs.</p>
+        </article>
+        <article class="achievement glass reveal">
+          <strong>Semiconductors</strong>
+          <p>Exploring electronic device behavior, MOS capacitor analysis, and communication system concepts.</p>
+        </article>
+        <article class="achievement glass reveal">
+          <strong>Embedded Systems</strong>
+          <p>Bridging hardware and software through Arduino, sensor interfaces, and embedded prototyping.</p>
+        </article>
+        <article class="achievement glass reveal">
+          <strong>AI-Assisted Dev</strong>
+          <p>Leveraging AI tools and workflows to accelerate development and push creative boundaries.</p>
+        </article>
+        <article class="achievement glass reveal">
+          <strong>Interactive Web</strong>
+          <p>Crafting immersive web experiences with 3D concepts, motion design, and cursor-reactive interfaces.</p>
+        </article>
+        <article class="achievement glass reveal">
+          <strong>Human-Centered UX</strong>
+          <p>Designing intuitive, accessible interfaces that prioritize user experience and engagement.</p>
+        </article>
+        <article class="achievement glass reveal">
+          <strong>Frontend Architecture</strong>
+          <p>Building scalable, maintainable frontend systems with modern component-driven patterns.</p>
+        </article>
+        <article class="achievement glass reveal">
+          <strong>Digital Products</strong>
+          <p>End-to-end product engineering from concept to polished, deployable digital experiences.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact section" id="contact">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Contact</p>
+        <h4>Open to collaborations, internships, and exciting opportunities.</h4>
+      </div>
+      <div class="contact__layout">
+        <article class="contact__card glass reveal">
+          <p>
+            Interested in innovative engineering, futuristic web experiences,
+            and impactful digital products. Open to collaborations, internships,
+            and exciting technical opportunities.
+          </p>
+
+        </article>
+        <article class="contact__signal glass reveal">
+          <span>Philosophy</span>
+          <p>"Engineering builds the logic. Design builds the experience."</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div class="modal" id="project-modal" aria-hidden="true">
+    <div class="modal__backdrop" data-close="true"></div>
+    <div class="modal__panel glass">
+      <button class="modal__close" id="modal-close" aria-label="Close project details">
+        ×
+      </button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
