@@ -3,7 +3,7 @@
    ═══════════════════════════════════════════════════════ */
 
 const GITHUB_USERNAME = "bip-krishna";
-const PINNED_REPOS = ["Token-System", "IC-KIT", "cursor-follower-spline", "GDSC-nitc"];
+const PINNED_REPOS = ["Repolens-AI", "IC-KIT", "Token-System", "GDSC-nitc"];
 const INITIAL_SHOW_COUNT = 4;
 const CACHE_KEY = `gh_projects_${GITHUB_USERNAME}`;
 const CACHE_DURATION = 30 * 60 * 1000; // 30 minutes
@@ -758,5 +758,22 @@ function initAnimatedText() {
   onScroll();
 }
 
+function initScrollProgress() {
+  const progressBar = document.getElementById('scroll-progress-bar');
+  if (!progressBar) return;
+
+  function updateScroll() {
+    const scrollPos = window.scrollY;
+    const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    // Prevent division by zero if docHeight is 0
+    const scrollPercent = docHeight > 0 ? (scrollPos / docHeight) * 100 : 0;
+    progressBar.style.width = scrollPercent + '%';
+  }
+
+  window.addEventListener('scroll', updateScroll, { passive: true });
+  updateScroll();
+}
+
 initMarquee();
 initAnimatedText();
+initScrollProgress();

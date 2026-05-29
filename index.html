@@ -17,6 +17,9 @@
 
 <body>
   <canvas class="scene-canvas" id="scene-canvas" aria-hidden="true"></canvas>
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar" id="scroll-progress-bar"></div>
+  </div>
   <div class="noise"></div>
   <div class="ambient ambient-one"></div>
   <div class="ambient ambient-two"></div>
@@ -53,18 +56,16 @@
       <div class="hero__grid">
         <div class="hero__content reveal">
           <p class="eyebrow">Full Stack Developer & Electronics Engineer</p>
-          <h1>
+          <h1 >
             I craft experiences that feel
             <span class="type-line">
               <span id="typed-text"></span><span class="typed-cursor"></span>
             </span>
           </h1>
           <p class="hero__lede">
-            Electronics & Communication Engineering student passionate about
-            full-stack development, immersive UI/UX, and building futuristic
-            digital experiences. I enjoy combining engineering fundamentals
-            with creative software development to create products that are
-            both technically robust and visually engaging.
+            ECE student at NIT Calicut passionate about full-stack development,
+            immersive UI/UX, and building futuristic digital experiences —
+            combining engineering fundamentals with creative software.
           </p>
           <div class="hero__actions">
             <a class="button magnetic" href="#projects">
@@ -81,6 +82,10 @@
           </div>
           <div class="hero__metrics">
             <article class="metric glass reveal">
+              <strong>8.83</strong>
+              <span>CGPA (out of 10)</span>
+            </article>
+            <article class="metric glass reveal">
               <strong>15+</strong>
               <span>Projects completed</span>
             </article>
@@ -89,8 +94,8 @@
               <span>Linkedin Connections</span>
             </article>
             <article class="metric glass reveal">
-              <strong>50000+</strong>
-              <span>Lines of Code written</span>
+              <strong>50K+</strong>
+              <span>Lines of Code</span>
             </article>
           </div>
         </div>
@@ -110,9 +115,9 @@
                 <small>HTML, CSS, JavaScript, React, Next.js, Node.js, APIs</small>
               </div>
               <div class="floating-card card-secondary">
-                <p>Foundation</p>
+                <p>NIT Calicut</p>
                 <strong>Electronics & Communication</strong>
-                <small>Semiconductors, circuits, signals</small>
+                <small>CGPA of 8.83/10</small>
               </div>
               <div class="floating-card card-tertiary">
                 <p>Passion</p>
@@ -156,26 +161,121 @@
     </section>
 
     <section class="about section" id="about">
-      <div class="about-3d-scene">
-        <img src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/moon_icon.11395d36.png" class="about-icon moon-icon reveal" alt="Moon 3D">
-        <img src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/p59_1.4659672e.png" class="about-icon object-icon reveal" alt="3D Object">
-        <img src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/lego_icon-1.703bb594.png" class="about-icon lego-icon reveal" alt="Lego 3D">
-        <img src="https://shrug-person-78902957.figma.site/_components/v2/ebb2b8f25d8e24d5f0a5ca8af4c950de81aa2fd7/Group_134-1.2e04f3ce.png" class="about-icon group-icon reveal" alt="3D Group">
-      </div>
-      <div class="about-content reveal">
-        <h2 class="hero-heading about-heading">About me</h2>
-        <div class="about-animated-text" id="animated-about-text">
-          I'm an Electronics & Communication Engineering student with a strong interest in software development, interactive web technologies, and digital product design. My work combines engineering problem-solving with modern development practices, allowing me to build experiences that are both technically efficient and visually immersive.
+      <div class="about-v2">
+        <div class="about-v2__header reveal">
+          <span class="about-v2__number"></span>
+          <h2 class="about-v2__title">About</h2>
+          <div class="about-v2__rule"></div>
         </div>
-        <div class="about-actions">
-          <a class="button button-gradient magnetic" href="#contact">
-            <span>Contact Me</span>
-          </a>
+        <div class="about-v2__grid">
+          <div class="about-v2__bio reveal">
+            <div class="about-animated-text" id="animated-about-text">I'm Krishna Kunar Jha — first-year ECE at NIT Calicut, building at the intersection of software engineering, immersive interfaces, and modern product design. Strong foundations in full-stack development, UI systems, and problem-solving. I care about building digital experiences that are reliable, fast, and visually engaging.</div>
+            <div class="about-v2__copy">
+              <p>
+                Open-source enthusiast  with a growing interest in research, internships, and ambitious product work.
+              </p>
+              <p>
+                Interests: full-stack systems, UI/UX engineering, modern web experiences, scalable software, and the occasional late-night build sprint.
+              </p>
+            </div>
+          </div>
+          <aside class="about-v2__table reveal" aria-label="Quick facts">
+            <div class="about-v2__row">
+              <span>MODEL ARCHITECTURE </span>
+              <strong>B.Tech ECE, 2025-2029</strong>
+            </div>
+            <div class="about-v2__row">
+              <span>TRAINING FACILITY </span>
+              <strong>NIT Calicut</strong>
+            </div>
+            <div class="about-v2__row">
+              <span>PERFORMANCE INDEX</span>
+              <strong class="about-v2__highlight">8.83 </strong>
+            </div>
+            <div class="about-v2__row">
+              <span>LATEST EPOCH </span>
+              <strong>8.83</strong>
+            </div>
+            <div class="about-v2__row">
+              <span>BASELINE ACCURACY </span>
+              <strong>92.4%</strong>
+            </div>
+            <div class="about-v2__row">
+              <span>BENCHMARK CLEARED </span>
+              <strong>JEE Advanced</strong>
+            </div>
+            <!-- <div class="about-v2__row">
+              <span>Status</span>
+              <strong class="about-v2__highlight" id="about-scroll-value">Internships, projects &amp; research &#8594;</strong>
+            </div> -->
+          </aside>
         </div>
       </div>
     </section>
 
-    <section class="work section" id="work">
+   
+    <!-- 
+    <section class="experience section" id="education">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Education</p>
+
+      </div>
+      <div class="timeline">
+        <article class="timeline__item glass reveal">
+          <span class="timeline__year">NIT Calicut</span>
+          <h3>B.Tech in Electronics & Communication Engineering</h3>
+          <p>
+            Building a strong foundation in electronics, communication systems,
+            semiconductor physics, embedded concepts, and modern computational
+            technologies while actively developing software engineering and
+            product-building skills.
+          </p>
+        </article>
+      </div>
+    </section> -->
+
+    <!-- <section class="experience section" id="journey">
+      <div class="section-heading reveal">
+        <p class="eyebrow">Journey</p>
+        <h3>Engineering + Development: a cross-disciplinary path.</h3>
+      </div>
+      <div class="timeline">
+        <article class="timeline__item glass reveal">
+          <span class="timeline__year">Foundation</span>
+          <h3>Electronics & engineering fundamentals</h3>
+          <p>
+            Started with core engineering — circuit analysis, semiconductor
+            devices, signals & systems, and analog/digital electronics.
+          </p>
+        </article>
+        <article class="timeline__item glass reveal">
+          <span class="timeline__year">Exploration</span>
+          <h3>Expanded into software development & UI/UX</h3>
+          <p>
+            Discovered a passion for building web applications and designing
+            interfaces that feel intuitive and visually immersive.
+          </p>
+        </article>
+        <article class="timeline__item glass reveal">
+          <span class="timeline__year">Growth</span>
+          <h3>Full stack development & creative frontend</h3>
+          <p>
+            Built projects with React, Next.js, Node.js, and started
+            experimenting with 3D concepts, motion design, and AI-assisted
+            development workflows.
+          </p>
+        </article>
+        <article class="timeline__item glass reveal">
+          <span class="timeline__year">Now</span>
+          <h3>Combining analytical engineering with creative experiences</h3>
+          <p>
+            Today, I enjoy combining analytical engineering thinking with creative
+            frontend experiences to build futuristic digital products.
+          </p>
+        </article>
+      </div>
+    </section> -->
+     <section class="work section" id="work">
       <div class="section-heading reveal">
         <p class="eyebrow">Experience</p>
         <h2 class="hero-heading">Where I've Worked</h2>
@@ -269,72 +369,11 @@
         </div>
       </div>
     </section>
-    <!-- 
-    <section class="experience section" id="education">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Education</p>
-
-      </div>
-      <div class="timeline">
-        <article class="timeline__item glass reveal">
-          <span class="timeline__year">NIT Calicut</span>
-          <h3>B.Tech in Electronics & Communication Engineering</h3>
-          <p>
-            Building a strong foundation in electronics, communication systems,
-            semiconductor physics, embedded concepts, and modern computational
-            technologies while actively developing software engineering and
-            product-building skills.
-          </p>
-        </article>
-      </div>
-    </section> -->
-
-    <section class="experience section" id="journey">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Journey</p>
-        <h3>Engineering + Development: a cross-disciplinary path.</h3>
-      </div>
-      <div class="timeline">
-        <article class="timeline__item glass reveal">
-          <span class="timeline__year">Foundation</span>
-          <h3>Electronics & engineering fundamentals</h3>
-          <p>
-            Started with core engineering — circuit analysis, semiconductor
-            devices, signals & systems, and analog/digital electronics.
-          </p>
-        </article>
-        <article class="timeline__item glass reveal">
-          <span class="timeline__year">Exploration</span>
-          <h3>Expanded into software development & UI/UX</h3>
-          <p>
-            Discovered a passion for building web applications and designing
-            interfaces that feel intuitive and visually immersive.
-          </p>
-        </article>
-        <article class="timeline__item glass reveal">
-          <span class="timeline__year">Growth</span>
-          <h3>Full stack development & creative frontend</h3>
-          <p>
-            Built projects with React, Next.js, Node.js, and started
-            experimenting with 3D concepts, motion design, and AI-assisted
-            development workflows.
-          </p>
-        </article>
-        <article class="timeline__item glass reveal">
-          <span class="timeline__year">Now</span>
-          <h3>Combining analytical engineering with creative experiences</h3>
-          <p>
-            Today, I enjoy combining analytical engineering thinking with creative
-            frontend experiences to build futuristic digital products.
-          </p>
-        </article>
-      </div>
-    </section>
 
     <section class="projects section" id="projects">
       <div class="section-heading reveal">
         <p class="eyebrow">Featured Projects</p>
-        <h2 class="hero-heading">The portfolio centerpiece: projects curated from GitHub.</h2>
+        <!-- <h2 class="hero-heading">The portfolio centerpiece: projects curated from GitHub.</h2> -->
       </div>
       <div class="project-grid" id="project-grid"></div>
       <div class="projects__actions" id="projects-actions"></div>
@@ -343,7 +382,7 @@
     <section class="skills section" id="skills">
       <div class="section-heading reveal">
         <p class="eyebrow">Skills & Stack</p>
-        <h2 class="hero-heading">A cross-disciplinary toolkit built for modern products.</h2>
+        <h2 class="hero-heading"></h2>
       </div>
       <div class="skills__layout">
         <article class="glass skill-panel reveal">
@@ -413,26 +452,23 @@
           <strong>Embedded Systems</strong>
           <p>Bridging hardware and software through Arduino, sensor interfaces, and embedded prototyping.</p>
         </article>
-        <article class="achievement glass reveal">
-          <strong>AI-Assisted Dev</strong>
-          <p>Leveraging AI tools and workflows to accelerate development and push creative boundaries.</p>
-        </article>
+       
         <article class="achievement glass reveal">
           <strong>Interactive Web</strong>
           <p>Crafting immersive web experiences with 3D concepts, motion design, and cursor-reactive interfaces.</p>
         </article>
-        <article class="achievement glass reveal">
+        <!-- <article class="achievement glass reveal">
           <strong>Human-Centered UX</strong>
           <p>Designing intuitive, accessible interfaces that prioritize user experience and engagement.</p>
-        </article>
-        <article class="achievement glass reveal">
+        </article> -->
+        <!-- <article class="achievement glass reveal">
           <strong>Frontend Architecture</strong>
           <p>Building scalable, maintainable frontend systems with modern component-driven patterns.</p>
-        </article>
-        <article class="achievement glass reveal">
+        </article> -->
+        <!-- <article class="achievement glass reveal">
           <strong>Digital Products</strong>
           <p>End-to-end product engineering from concept to polished, deployable digital experiences.</p>
-        </article>
+        </article> -->
       </div>
     </section>
 
@@ -443,20 +479,22 @@
       </div>
       <div class="contact__layout">
         <article class="contact__card glass reveal">
+          <p>Email Me at :</p>
           <p>
-            Interested in innovative engineering, futuristic web experiences,
-            and impactful digital products. Open to collaborations, internships,
-            and exciting technical opportunities.
+            <strong class="highlight"><a href="mailto:krishnakumar789612@gmail.com">krishnakumar789612@gmail.com</a></strong>
           </p>
 
         </article>
-        <article class="contact__signal glass reveal">
-          <span>Philosophy</span>
-          <p>"Engineering builds the logic. Design builds the experience."</p>
-        </article>
+       
       </div>
     </section>
   </main>
+
+  <footer class="site-footer reveal">
+    <div class="site-footer__content">
+      <p>&copy; <script>document.write(new Date().getFullYear())</script> Krishna Jha. All rights reserved.</p>
+    </div>
+  </footer>
 
   <div class="modal" id="project-modal" aria-hidden="true">
     <div class="modal__backdrop" data-close="true"></div>
