@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════
-   GITHUB API CONFIGURATION
+   GITHUB & AI API CONFIGURATION
    ═══════════════════════════════════════════════════════ */
 
 const GITHUB_USERNAME = "bip-krishna";
@@ -7,6 +7,9 @@ const PINNED_REPOS = ["Repolens-AI", "IC-KIT", "Token-System", "GDSC-nitc"];
 const INITIAL_SHOW_COUNT = 4;
 const CACHE_KEY = `gh_projects_${GITHUB_USERNAME}`;
 const CACHE_DURATION = 30 * 60 * 1000; // 30 minutes
+
+// IMPORTANT: Update this to your deployed Vercel URL once you deploy portfolio-ai-backend
+const BACKEND_URL = "https://portfolio-ai-backend.vercel.app"; 
 
 // Fallback data if API fails
 const FALLBACK_PROJECTS = [
@@ -257,9 +260,9 @@ function renderProjects(projects, showAll = false) {
           <p>${project.description || "No description available."}</p>
           <div class="pill-row">
             ${(project.topics.length > 0
-              ? project.topics.slice(0, 4)
-              : [project.language || "Code"]
-            ).map((t) => `<span class="pill">${t}</span>`).join("")}
+          ? project.topics.slice(0, 4)
+          : [project.language || "Code"]
+        ).map((t) => `<span class="pill">${t}</span>`).join("")}
           </div>
           <div class="project-card__footer">
             <div class="project-card__stats">
@@ -308,6 +311,102 @@ function revealHiddenCards() {
   });
 }
 
+let currentChatHistory = [];
+let currentRepoTreeStr = "";
+let currentRepoSummary = "";
+
+function renderFileTree(nodes) {
+  if (!nodes || nodes.length === 0) return "<li>No files found</li>";
+  let html = "<ul>";
+  for (const node of nodes) {
+    html += `<li class="${node.type === 'folder' ? 'is-folder' : 'is-file'}">${node.name}</li>`;
+    if (node.children && node.children.length > 0) {
+      html += renderFileTree(node.children);
+    }
+  }
+  html += "</ul>";
+  return html;
+}
+
+function switchTab(tabId) {
+  document.querySelectorAll(".modal__tab").forEach(t => t.classList.remove("is-active"));
+  document.querySelectorAll(".modal__tab-content").forEach(c => c.classList.remove("is-active"));
+  document.querySelector(`[data-modal-tab="${tabId}"]`).classList.add("is-active");
+  document.getElementById(`tab-${tabId}`).classList.add("is-active");
+}
+
+async function sendChatMessage(repoName) {
+  const input = document.getElementById("chat-input");
+  const submitBtn = document.getElementById("chat-submit");
+  const messagesContainer = document.getElementById("chat-messages");
+  
+  const text = input.value.trim();
+  if (!text) return;
+  
+  // Add user message
+  input.value = "";
+  submitBtn.disabled = true;
+  
+  messagesContainer.innerHTML += `<div class="chat-message user">${text}</div>`;
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  
+  currentChatHistory.push({ role: "user", content: text });
+  
+  // Add loading placeholder for assistant
+  const id = "msg-" + Date.now();
+  messagesContainer.innerHTML += `<div class="chat-message assistant" id="${id}">...</div>`;
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+  const msgEl = document.getElementById(id);
+  
+  try {
+    const response = await fetch(`${BACKEND_URL}/api/ai/chat`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        repoName: repoName,
+        messages: currentChatHistory,
+        treeStr: currentRepoTreeStr,
+        summary: currentRepoSummary
+      })
+    });
+    
+    if (!response.ok) throw new Error("Failed to send message");
+    
+    // Simple reader for SSE (Stream)
+    const reader = response.body.getReader();
+    const decoder = new TextDecoder("utf-8");
+    let assistantMessage = "";
+    msgEl.innerHTML = "";
+    
+    while (true) {
+      const { done, value } = await reader.read();
+      if (done) break;
+      const chunk = decoder.decode(value, { stream: true });
+      const lines = chunk.split("\n");
+      for (const line of lines) {
+        if (line.startsWith("data: ")) {
+          try {
+            const data = JSON.parse(line.slice(6));
+            if (data.error) throw new Error(data.error);
+            if (data.content) {
+              assistantMessage += data.content;
+              msgEl.innerHTML = markdownToHtml(assistantMessage);
+              messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+          } catch (e) { /* ignore parse error for incomplete chunks */ }
+        }
+      }
+    }
+    currentChatHistory.push({ role: "assistant", content: assistantMessage });
+  } catch (error) {
+    msgEl.innerHTML = `<em>Error: ${error.message}</em>`;
+    currentChatHistory.pop(); // remove user message on error to allow retry
+  } finally {
+    submitBtn.disabled = false;
+    input.focus();
+  }
+}
+
 function openModal(project) {
   const langColor = getLangColor(project.language);
   const langDot = project.language
@@ -323,15 +422,17 @@ function openModal(project) {
        </a>`
     : "";
 
+  currentChatHistory = [];
+  currentRepoTreeStr = "";
+  currentRepoSummary = "";
+
   modalContent.innerHTML = `
     <div class="modal__content">
       <p class="eyebrow">${langDot} ${project.isPinned ? "· 📌 Pinned" : ""}</p>
       <h2>${project.name}</h2>
       <div class="modal__meta">
-        ${(project.topics.length > 0
-          ? project.topics
-          : [project.language || "Code"]
-        ).map((item) => `<span class="pill">${item}</span>`).join("")}
+        ${(project.topics.length > 0 ? project.topics : [project.language || "Code"])
+          .map((item) => `<span class="pill">${item}</span>`).join("")}
       </div>
       <div class="modal__stats-row">
         <span class="modal__stat">⭐ <strong>${project.stars}</strong> stars</span>
@@ -339,10 +440,38 @@ function openModal(project) {
         <span class="modal__stat">📅 Updated <strong>${formatDate(project.updated_at)}</strong></span>
       </div>
       <p>${project.description || "No description available."}</p>
-      <h3>README</h3>
-      <div class="modal__readme" id="modal-readme">
-        <div class="readme-loading">Loading README…</div>
+      
+      <div class="modal__tabs">
+        <button class="modal__tab is-active" data-modal-tab="readme" onclick="switchTab('readme')">README</button>
+        <button class="modal__tab" data-modal-tab="structure" onclick="switchTab('structure')">Project Structure</button>
+        <button class="modal__tab" data-modal-tab="chat" onclick="switchTab('chat')">AI Chat</button>
       </div>
+
+      <div class="modal__tab-content is-active" id="tab-readme">
+        <div id="ai-summary-container"></div>
+        <div class="modal__readme" id="modal-readme">
+          <div class="readme-loading">Loading README…</div>
+        </div>
+      </div>
+
+      <div class="modal__tab-content" id="tab-structure">
+        <div class="file-tree" id="modal-file-tree">
+          <div class="readme-loading">Analyzing Repository...</div>
+        </div>
+      </div>
+
+      <div class="modal__tab-content" id="tab-chat">
+        <div class="chat-container">
+          <div class="chat-messages" id="chat-messages">
+            <div class="chat-message assistant">Hi! I'm Repolens AI. Ask me anything about the <strong>${project.name}</strong> repository!</div>
+          </div>
+          <div class="chat-input-area">
+            <input type="text" class="chat-input" id="chat-input" placeholder="Ask about this repo..." onkeypress="if(event.key==='Enter') sendChatMessage('${project.name}')">
+            <button class="chat-submit" id="chat-submit" onclick="sendChatMessage('${project.name}')">Send</button>
+          </div>
+        </div>
+      </div>
+
       <div class="modal__links">
         <a class="button magnetic" href="${project.html_url}" target="_blank" rel="noreferrer">
           <span>View Repository</span>
@@ -366,6 +495,44 @@ function openModal(project) {
         : "<p>No README found for this repository.</p>";
     }
   });
+
+  // Async load Repolens AI Analysis
+  fetch(`${BACKEND_URL}/api/analyze?owner=bip-krishna&repo=${project.name}`)
+    .then(res => res.json())
+    .then(data => {
+      if (data.success && data.data) {
+        // Render Summary
+        if (data.data.summary) {
+          currentRepoSummary = data.data.summary;
+          const summaryContainer = document.getElementById("ai-summary-container");
+          if (summaryContainer) {
+            summaryContainer.innerHTML = `
+              <div class="ai-summary">
+                <div class="ai-summary-title">✨ AI Curated Summary</div>
+                ${markdownToHtml(data.data.summary)}
+              </div>
+            `;
+          }
+        }
+        
+        // Render Tree
+        if (data.data.tree) {
+          const treeContainer = document.getElementById("modal-file-tree");
+          if (treeContainer) {
+            treeContainer.innerHTML = renderFileTree(data.data.tree);
+            // build simple string for chat context
+            currentRepoTreeStr = JSON.stringify(data.data.tree.slice(0, 50)); 
+          }
+        }
+      } else {
+        document.getElementById("modal-file-tree").innerHTML = "<p>Could not analyze repository structure.</p>";
+      }
+    })
+    .catch(err => {
+      console.error("AI Analysis failed:", err);
+      const treeContainer = document.getElementById("modal-file-tree");
+      if (treeContainer) treeContainer.innerHTML = "<p>Analysis backend is unreachable. Make sure CORS is configured.</p>";
+    });
 }
 
 function closeModal() {
@@ -698,7 +865,7 @@ function initMarquee() {
   const row1 = document.getElementById('marquee-row-1');
   const row2 = document.getElementById('marquee-row-2');
   const section = document.getElementById('marquee');
-  
+
   if (!row1 || !row2 || !section) return;
 
   // Duplicate items 2 times for seamless looping
@@ -711,7 +878,7 @@ function initMarquee() {
     row1.style.transform = `translate3d(${offset - 200}px, 0, 0)`;
     row2.style.transform = `translate3d(${-(offset - 200)}px, 0, 0)`;
   }
-  
+
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 }
@@ -722,7 +889,7 @@ function initAnimatedText() {
 
   const text = container.textContent.trim();
   container.innerHTML = '';
-  
+
   // Split into spans
   const spans = text.split('').map(char => {
     const span = document.createElement('span');
@@ -734,21 +901,21 @@ function initAnimatedText() {
   function onScroll() {
     const rect = container.getBoundingClientRect();
     const windowHeight = window.innerHeight;
-    
+
     // Progress starts when element is 80% down the screen, ends when 20% down
     const start = windowHeight * 0.8;
     const end = windowHeight * 0.2;
-    
+
     let progress = (start - rect.top) / (start - end);
     progress = Math.max(0, Math.min(1, progress));
-    
+
     spans.forEach((span, i) => {
       const charStart = i / spans.length;
       const charEnd = charStart + (1 / spans.length);
-      
+
       let charProgress = (progress - charStart) / (charEnd - charStart);
       charProgress = Math.max(0, Math.min(1, charProgress));
-      
+
       const opacity = 0.2 + (0.8 * charProgress);
       span.style.opacity = opacity;
     });
