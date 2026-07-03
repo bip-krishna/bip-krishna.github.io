@@ -9,7 +9,7 @@ const CACHE_KEY = `gh_projects_${GITHUB_USERNAME}`;
 const CACHE_DURATION = 30 * 60 * 1000; // 30 minutes
 
 // IMPORTANT: Update this to your deployed Vercel URL once you deploy portfolio-ai-backend
-const BACKEND_URL = "https://portfolio-ai-backend.vercel.app"; 
+const BACKEND_URL = "https://portfolio-ai-backend-nine-woad.vercel.app";
 
 // Fallback data if API fails
 const FALLBACK_PROJECTS = [
@@ -339,27 +339,27 @@ async function sendChatMessage(repoName) {
   const input = document.getElementById("chat-input");
   const submitBtn = document.getElementById("chat-submit");
   const messagesContainer = document.getElementById("chat-messages");
-  
+
   const text = input.value.trim();
   if (!text) return;
-  
+
   // Add user message
   input.value = "";
   submitBtn.disabled = true;
-  
+
   messagesContainer.innerHTML += `<div class="chat-message user">${text}</div>`;
   messagesContainer.scrollTop = messagesContainer.scrollHeight;
-  
+
   currentChatHistory.push({ role: "user", content: text });
-  
+
   // Add loading placeholder for assistant
   const id = "msg-" + Date.now();
   messagesContainer.innerHTML += `<div class="chat-message assistant" id="${id}">...</div>`;
   messagesContainer.scrollTop = messagesContainer.scrollHeight;
   const msgEl = document.getElementById(id);
-  
+
   try {
-    const response = await fetch(`${BACKEND_URL}/api/ai/chat`, {
+    const response = await fetch(`${BACKEND_URL}/api/chat`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -369,15 +369,15 @@ async function sendChatMessage(repoName) {
         summary: currentRepoSummary
       })
     });
-    
+
     if (!response.ok) throw new Error("Failed to send message");
-    
+
     // Simple reader for SSE (Stream)
     const reader = response.body.getReader();
     const decoder = new TextDecoder("utf-8");
     let assistantMessage = "";
     msgEl.innerHTML = "";
-    
+
     while (true) {
       const { done, value } = await reader.read();
       if (done) break;
@@ -432,7 +432,7 @@ function openModal(project) {
       <h2>${project.name}</h2>
       <div class="modal__meta">
         ${(project.topics.length > 0 ? project.topics : [project.language || "Code"])
-          .map((item) => `<span class="pill">${item}</span>`).join("")}
+      .map((item) => `<span class="pill">${item}</span>`).join("")}
       </div>
       <div class="modal__stats-row">
         <span class="modal__stat">⭐ <strong>${project.stars}</strong> stars</span>
@@ -506,22 +506,31 @@ function openModal(project) {
           currentRepoSummary = data.data.summary;
           const summaryContainer = document.getElementById("ai-summary-container");
           if (summaryContainer) {
+            let mdStr = "";
+            if (typeof data.data.summary === "object") {
+              const s = data.data.summary;
+              if (s.overview) mdStr += `**Overview:** ${s.overview}\n\n`;
+              if (s.architecture) mdStr += `**Architecture:** ${s.architecture}\n\n`;
+              if (s.techStack && s.techStack.length) mdStr += `**Tech Stack:** ${s.techStack.join(", ")}\n\n`;
+            } else {
+              mdStr = String(data.data.summary);
+            }
             summaryContainer.innerHTML = `
               <div class="ai-summary">
                 <div class="ai-summary-title">✨ AI Curated Summary</div>
-                ${markdownToHtml(data.data.summary)}
+                ${markdownToHtml(mdStr)}
               </div>
             `;
           }
         }
-        
+
         // Render Tree
         if (data.data.tree) {
           const treeContainer = document.getElementById("modal-file-tree");
           if (treeContainer) {
             treeContainer.innerHTML = renderFileTree(data.data.tree);
             // build simple string for chat context
-            currentRepoTreeStr = JSON.stringify(data.data.tree.slice(0, 50)); 
+            currentRepoTreeStr = JSON.stringify(data.data.tree.slice(0, 50));
           }
         }
       } else {
@@ -531,7 +540,7 @@ function openModal(project) {
     .catch(err => {
       console.error("AI Analysis failed:", err);
       const treeContainer = document.getElementById("modal-file-tree");
-      if (treeContainer) treeContainer.innerHTML = "<p>Analysis backend is unreachable. Make sure CORS is configured.</p>";
+      if (treeContainer) treeContainer.innerHTML = "<p>Failed to load AI Analysis. Error: " + err.message + "</p>";
     });
 }
 
