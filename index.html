@@ -4,378 +4,333 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Krishna Jha</title>
+  <title>Krishna Jha — Full-stack Developer & Electronics Engineer</title>
   <meta name="description"
-    content="Portfolio of Krishna Jha — ECE student at NIT Calicut, full-stack developer, and electronics enthusiast crafting futuristic digital experiences." />
+    content="Portfolio of Krishna Jha — Electronics & Communication Engineering student at NIT Calicut and full-stack developer." />
+  <meta name="color-scheme" content="light" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./styles.css?v=5.0" />
 </head>
 
 <body>
-  <canvas class="scene-canvas" id="scene-canvas" aria-hidden="true"></canvas>
   <div class="scroll-progress" aria-hidden="true">
     <div class="scroll-progress__bar" id="scroll-progress-bar"></div>
   </div>
-  <div class="noise"></div>
-  <div class="ambient ambient-one"></div>
-  <div class="ambient ambient-two"></div>
-  <div class="ambient ambient-three"></div>
 
-
-
-
-  <header class="site-header glass">
+  <header class="site-header">
     <a class="brand" href="#top">
-      <span class="brand__orb"></span>
-      <span>
-        <strong>Krishna Jha</strong>
-        <small>ECE • Full Stack • NITC</small>
+      <span class="brand__mark" aria-hidden="true">KK</span>
+      <span class="brand__text">
+        <strong>KKJ</strong>
+        <small>ECE · Full-stack · NIT Calicut</small>
       </span>
     </a>
-    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+    <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false"
+      aria-controls="main-nav">
       <span></span>
       <span></span>
       <span></span>
     </button>
-    <nav class="nav" id="main-nav">
+    <nav class="nav" id="main-nav" aria-label="Primary">
       <a href="#about">About</a>
-      <!-- <a href="#journey">Education</a> -->
-      <a href="#skills">Skills</a>
+      <a href="#work">Experience</a>
       <a href="#projects">Projects</a>
-      <a href="#interests">Interests</a>
+      <a href="#skills">Skills</a>
+      <a href="achievements.html">Achievements</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main id="top">
-    <section class="hero section">
-      <div class="hero__grid">
-        <div class="hero__content reveal">
-          <p class="eyebrow">Full Stack Developer & Electronics Engineer</p>
-          <h1>
-            I craft experiences that feel<br>
-            <span class="type-line">
-              <span id="typed-text"></span><span class="typed-cursor"></span>
-            </span>
-          </h1>
-          <p class="hero__lede">
-            ECE student at NIT Calicut passionate about full-stack development,
-            immersive UI/UX, and building futuristic digital experiences —
-            combining engineering fundamentals with creative software.
-          </p>
-          <div class="hero__actions">
-            <a class="button magnetic" href="#projects">
-              <span>Explore Projects</span>
-            </a>
-            <a class="button button--ghost magnetic" href="https://github.com/bip-krishna" target="_blank"
-              rel="noreferrer">
-              <span>GitHub</span>
-            </a>
-            <a class="button button--ghost magnetic" href="https://www.linkedin.com/in/krishnajha29/" target="_blank"
-              rel="noreferrer">
-              <span>LinkedIn</span>
-            </a>
-          </div>
-          <div class="hero__metrics">
-            <article class="metric glass reveal">
-              <strong>8.83</strong>
-              <span>CGPA (out of 10)</span>
-            </article>
-            <article class="metric glass reveal">
-              <strong>15+</strong>
-              <span>Projects completed</span>
-            </article>
-            <article class="metric glass reveal">
-              <strong>500+</strong>
-              <span>Linkedin Connections</span>
-            </article>
-            <article class="metric glass reveal">
-              <strong>50K+</strong>
-              <span>Lines of Code</span>
-            </article>
+    <section class="section hero reveal" style="position: relative; z-index: 50;">
+      <p class="eyebrow">Electronics &amp; Communication Engineering · NIT Calicut</p>
+      <h1>Krishna Kumar Jha</h1>
+      <p class="hero__lede">
+        I build full-stack software and engineer electronics — from React and TypeScript
+        on the front end to Node.js services and circuits underneath. I care about software
+        that is dependable, fast, and straightforward to use.
+      </p>
+      <div class="hero__actions" style="position: relative; z-index: 100;">
+        <a class="button" href="#projects">View Projects</a>
+
+        <!-- GitHub with Preview Hovercard -->
+        <div class="social-preview-wrapper" data-platform="github" style="position: relative; z-index: 50;">
+          <a class="button button--ghost social-btn" href="https://github.com/bip-krishna" target="_blank"
+            rel="noreferrer" aria-label="GitHub profile">
+            <svg class="social-btn__icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+            <span>GitHub</span>
+          </a>
+
+          <!-- GitHub Preview Hovercard -->
+          <div class="hovercard hovercard--github" style="top: calc(100% + 14px) !important; bottom: auto !important; z-index: 9999999 !important;" role="tooltip" aria-hidden="true">
+            <div class="hovercard__caret"></div>
+            <div class="hovercard__banner hovercard__banner--github">
+              <div class="hovercard__badge">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                <span>bip-krishna</span>
+              </div>
+            </div>
+
+            <div class="hovercard__body">
+              <div class="hovercard__profile-row">
+                <img class="hovercard__avatar" src="https://github.com/bip-krishna.png" alt="Krishna Jha" width="48" height="48" loading="lazy" />
+                <div class="hovercard__names">
+                  <strong class="hovercard__name gh-card-name">Krishna Jha</strong>
+                  <span class="hovercard__handle gh-card-handle">@bip-krishna</span>
+                </div>
+              </div>
+
+              <p class="hovercard__bio gh-card-bio">ECE at NIT Calicut ('29). Building full-stack systems, robotics simulations, and open-source tooling.</p>
+
+              <div class="hovercard__meta-line">
+                <span class="hovercard__meta-item">
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  <span class="gh-card-location">NIT Calicut, India</span>
+                </span>
+              </div>
+
+              <div class="hovercard__stats-grid">
+                <div class="hovercard__stat">
+                  <span class="hovercard__stat-val gh-card-repos">12+</span>
+                  <span class="hovercard__stat-lbl">Repos</span>
+                </div>
+                <div class="hovercard__stat">
+                  <span class="hovercard__stat-val gh-card-followers">18+</span>
+                  <span class="hovercard__stat-lbl">Followers</span>
+                </div>
+                <div class="hovercard__stat">
+                  <span class="hovercard__stat-val gh-card-stars">★ 5+</span>
+                  <span class="hovercard__stat-lbl">Stars</span>
+                </div>
+              </div>
+
+              <div class="hovercard__pinned-preview">
+                <span class="hovercard__pinned-title">Featured Repos</span>
+                <div class="hovercard__chips">
+                  <span class="hovercard__chip"><span class="hovercard__chip-dot" style="background:#3572A5"></span>Token-System</span>
+                  <span class="hovercard__chip"><span class="hovercard__chip-dot" style="background:#f1e05a"></span>IC-KIT</span>
+                  <span class="hovercard__chip"><span class="hovercard__chip-dot" style="background:#3178c6"></span>Repolens-AI</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="hovercard__footer">
+              <a class="hovercard__cta hovercard__cta--github" href="https://github.com/bip-krishna" target="_blank" rel="noreferrer">
+                <span>Open GitHub Profile</span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
+            </div>
           </div>
         </div>
 
-        <div class="hero__visual reveal">
-          <div class="control-room glass">
-            <div class="control-room__header">
-              <span></span>
-              <span></span>
-              <span></span>
+        <!-- LinkedIn with Preview Hovercard -->
+        <div class="social-preview-wrapper" data-platform="linkedin" style="position: relative; z-index: 50;">
+          <a class="button button--ghost social-btn" href="https://www.linkedin.com/in/krishnajha29/" target="_blank"
+            rel="noreferrer" aria-label="LinkedIn profile">
+            <svg class="social-btn__icon social-btn__icon--linkedin" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+              <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.6 1.6 0 1 0 1.6 1.6 1.6 1.6 0 0 0-1.6-1.6z"/>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+
+          <!-- LinkedIn Preview Hovercard -->
+          <div class="hovercard hovercard--linkedin" style="top: calc(100% + 14px) !important; bottom: auto !important; z-index: 9999999 !important;" role="tooltip" aria-hidden="true">
+            <div class="hovercard__caret"></div>
+            <div class="hovercard__banner hovercard__banner--linkedin">
+              <div class="hovercard__badge hovercard__badge--linkedin">
+                <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.6 1.6 0 1 0 1.6 1.6 1.6 1.6 0 0 0-1.6-1.6z"/></svg>
+                <span>in/krishnajha29</span>
+              </div>
             </div>
-            <div class="control-room__stage">
-              <div class="radar"></div>
-              <div class="floating-card card-primary">
-                <p>Focus</p>
-                <strong>Full Stack Development</strong>
-                <small>HTML, CSS, JavaScript, React, Next.js, Node.js, APIs</small>
+
+            <div class="hovercard__body">
+              <div class="hovercard__profile-row">
+                <div class="hovercard__avatar-wrap">
+                  <img class="hovercard__avatar" src="https://github.com/bip-krishna.png" alt="Krishna Jha" width="48" height="48" loading="lazy" />
+                  <span class="hovercard__in-badge">in</span>
+                </div>
+                <div class="hovercard__names">
+                  <div class="hovercard__name-line">
+                    <strong class="hovercard__name">Krishna Jha</strong>
+                    <span class="hovercard__check-badge" title="Verified Profile">✓</span>
+                  </div>
+                  <span class="hovercard__handle">Krishna Kumar Jha · 1st</span>
+                </div>
               </div>
-              <div class="floating-card card-secondary">
-                <p>NIT Calicut</p>
-                <strong>ECE </strong>
-                <small>CGPA of 8.83/10</small>
+
+              <p class="hovercard__bio">Electronics &amp; Communication Engineering at <strong>NIT Calicut</strong> (2025–2029) · Research Intern at <strong>BSERC</strong>.</p>
+
+              <div class="hovercard__credentials">
+                <div class="hovercard__credential">
+                  <span class="hovercard__cred-icon">🏛️</span>
+                  <span>National Institute of Technology Calicut</span>
+                </div>
+                <div class="hovercard__credential">
+                  <span class="hovercard__cred-icon">🚀</span>
+                  <span>Research Intern · BSERC (Robotics &amp; Space)</span>
+                </div>
+                <div class="hovercard__credential">
+                  <span class="hovercard__cred-icon">⚡</span>
+                  <span>Open Source Ambassador · Wiki NITC Admin</span>
+                </div>
               </div>
-              <div class="floating-card card-tertiary">
-                <p>Passion</p>
-                <strong>Futuristic digital products</strong>
-                <small>Immersive UI, 3D concepts, AI workflows</small>
+
+              <div class="hovercard__meta-line hovercard__meta-line--linkedin">
+                <span>📍 Calicut, Kerala, India</span>
+                <span class="hovercard__dot">•</span>
+                <span class="hovercard__conn">500+ connections</span>
               </div>
+            </div>
+
+            <div class="hovercard__footer">
+              <a class="hovercard__cta hovercard__cta--linkedin" href="https://www.linkedin.com/in/krishnajha29/" target="_blank" rel="noreferrer">
+                <span>Connect on LinkedIn</span>
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </a>
             </div>
           </div>
         </div>
+      </div>
+      <div class="hero__meta">
+        <span>CGPA 8.83 / 10</span>
+        <span class="hero__meta-dot" aria-hidden="true"></span>
+        <span>Class of 2029</span>
+        <span class="hero__meta-dot" aria-hidden="true"></span>
+        <span>JEE Advanced qualifier</span>
+        <span class="hero__meta-dot" aria-hidden="true"></span>
+        <span>Open to internships</span>
       </div>
     </section>
 
-    <!-- <section class="marquee section" id="marquee">
-      <div class="marquee-container">
-        <div class="marquee-row" id="marquee-row-1">
-          <img src="https://motionsites.ai/assets/hero-space-voyage-preview-eECLH3Yc.gif" loading="lazy" alt="Preview">
-          <img src="https://motionsites.ai/assets/hero-codenest-preview-Cgppc2qV.gif" loading="lazy" alt="Preview">
-          <img src="https://motionsites.ai/assets/hero-vex-ventures-preview-BczMFIiw.gif" loading="lazy" alt="Preview">
-          <img src="https://motionsites.ai/assets/hero-stellar-ai-v2-preview-DjvxjG3C.gif" loading="lazy" alt="Preview">
-          <img src="https://motionsites.ai/assets/hero-asme-preview-B_nGDnTP.gif" loading="lazy" alt="Preview">
-          <img src="https://motionsites.ai/assets/hero-transform-data-preview-Cx5OU29N.gif" loading="lazy" alt="Preview">
-          <img src="https://motionsites.ai/assets/hero-vitara-preview-Cjz2QYyU.gif" loading="lazy" alt="Preview">
-          <img src="https://motionsites.ai/assets/hero-terra-preview-BFjrCr7T.gif" loading="lazy" alt="Preview">
-          <img src="https://motionsites.ai/assets/hero-skyelite-preview-DHaZIgUv.gif" loading="lazy" alt="Preview">
-          <img src="https://motionsites.ai/assets/hero-aethera-preview-DknSlcTa.gif" loading="lazy" alt="Preview">
-          <img src="https://motionsites.ai/assets/hero-designpro-preview-D8c5_een.gif" loading="lazy" alt="Preview">
-        </div>
-        <div class="marquee-row" id="marquee-row-2">
-          <img src="https://motionsites.ai/assets/hero-stellar-ai-preview-D3HL6bw1.gif" loading="lazy" alt="Preview">
-          <img src="https://motionsites.ai/assets/hero-xportfolio-preview-D4A8maiC.gif" loading="lazy" alt="Preview">
-          <img src="https://motionsites.ai/assets/hero-orbit-web3-preview-BXt4OttD.gif" loading="lazy" alt="Preview">
-          <img src="https://motionsites.ai/assets/hero-nexora-preview-cx5HmUgo.gif" loading="lazy" alt="Preview">
-          <img src="https://motionsites.ai/assets/hero-evr-ventures-preview-DZxeVFEX.gif" loading="lazy" alt="Preview">
-          <img src="https://motionsites.ai/assets/hero-planet-orbit-preview-DWAP8Z1P.gif" loading="lazy" alt="Preview">
-          <img src="https://motionsites.ai/assets/hero-new-era-preview-CocuDUm9.gif" loading="lazy" alt="Preview">
-          <img src="https://motionsites.ai/assets/hero-wealth-preview-B70idl_u.gif" loading="lazy" alt="Preview">
-          <img src="https://motionsites.ai/assets/hero-luminex-preview-CxOP7ce6.gif" loading="lazy" alt="Preview">
-          <img src="https://motionsites.ai/assets/hero-celestia-preview-0yO3jXO8.gif" loading="lazy" alt="Preview">
-        </div>
+    <section class="section about" id="about" style="position: relative; z-index: 1;">
+      <div class="section-heading reveal">
+        <p class="eyebrow">01 · About</p>
+        <div class="section-heading__rule"></div>
       </div>
-    </section> -->
-
-    <section class="about section" id="about">
-      <div class="about-v2">
-        <div class="about-v2__header reveal">
-          <span class="about-v2__number"></span>
-          <h2 class="about-v2__title">About</h2>
-          <div class="about-v2__rule"></div>
+      <div class="about__layout">
+        <div class="about__bio reveal">
+          <p class="about__lead">
+            I'm <strong>Krishna Kumar Jha</strong>, an Electronics &amp; Communication Engineering
+            undergraduate at NIT Calicut (Class of 2029).
+          </p>
+          <p>
+            I work across the stack — React, TypeScript, Node.js, and REST APIs on the software
+            side; circuit analysis, semiconductor devices, and signals on the engineering side.
+            I value code that is reliable, readable, and shipped on time.
+          </p>
+          <p>
+            I contribute to open source and campus communities (Wiki NITC, ECSOC, GSSOC) and am
+            currently exploring robotics and space systems research through an internship at BSERC.
+          </p>
+          <p class="about__note">
+            Open to internships, research projects, and collaboration. My full record is on the
+            <a href="achievements.html">achievements page</a>, and I'm reachable via
+            <a href="mailto:krishnakumar789612@gmail.com">email</a>.
+          </p>
         </div>
-        <div class="about-v2__grid">
-          <div class="about-v2__bio reveal">
-            <div class="about-animated-text" id="animated-about-text">I'm Krishna Kumar Jha — first-year ECE at NIT
-              Calicut, building at the intersection of software engineering, immersive interfaces, and modern product
-              design. Strong foundations in full-stack development, UI systems, and problem-solving. I care about
-              building digital experiences that are reliable, fast, and visually engaging.</div>
-            <div class="about-v2__copy">
-              <p>
-                Open-source enthusiast with a growing interest in research, internships, and ambitious product work.
-              </p>
-              <p>
-                Interests: full-stack systems, UI/UX engineering, modern web experiences, scalable software, and the
-                occasional late-night build sprint.
-              </p>
-            </div>
+        <aside class="about__facts reveal" aria-label="Quick facts">
+          <div class="about__fact">
+            <span>Degree</span>
+            <strong>B.Tech ECE · 2025–2029</strong>
           </div>
-          <aside class="about-v2__table reveal" aria-label="Quick facts">
-            <div class="about-v2__row">
-              <span>MODEL ARCHITECTURE </span>
-              <strong>B.Tech ECE, 2025-2029</strong>
-            </div>
-            <div class="about-v2__row">
-              <span>TRAINING FACILITY </span>
-              <strong>NIT Calicut</strong>
-            </div>
-            <div class="about-v2__row">
-              <span>PERFORMANCE INDEX</span>
-              <strong class="about-v2__highlight">8.83 </strong>
-            </div>
-            <div class="about-v2__row">
-              <span>LATEST EPOCH </span>
-              <strong>8.83</strong>
-            </div>
-            <div class="about-v2__row">
-              <span>BASELINE ACCURACY </span>
-              <strong>92.4%</strong>
-            </div>
-            <div class="about-v2__row">
-              <span>BENCHMARK CLEARED </span>
-              <strong>JEE Advanced</strong>
-            </div>
-            <!-- <div class="about-v2__row">
-              <span>Status</span>
-              <strong class="about-v2__highlight" id="about-scroll-value">Internships, projects &amp; research &#8594;</strong>
-            </div> -->
-          </aside>
-        </div>
+          <div class="about__fact">
+            <span>Institution</span>
+            <strong>NIT Calicut</strong>
+          </div>
+          <div class="about__fact">
+            <span>CGPA</span>
+            <strong class="accent">8.83 / 10</strong>
+          </div>
+          <div class="about__fact">
+            <span>Entrance</span>
+            <strong>JEE Advanced</strong>
+          </div>
+          <div class="about__fact">
+            <span>Focus</span>
+            <strong>Full-stack · Embedded · UI engineering</strong>
+          </div>
+          <div class="about__fact">
+            <span>Status</span>
+            <strong>BSERC Research Intern</strong>
+          </div>
+        </aside>
       </div>
     </section>
 
-
-    <!-- 
-    <section class="experience section" id="education">
+    <section class="section work" id="work">
       <div class="section-heading reveal">
-        <p class="eyebrow">Education</p>
-
-      </div>
-      <div class="timeline">
-        <article class="timeline__item glass reveal">
-          <span class="timeline__year">NIT Calicut</span>
-          <h3>B.Tech in Electronics & Communication Engineering</h3>
-          <p>
-            Building a strong foundation in electronics, communication systems,
-            semiconductor physics, embedded concepts, and modern computational
-            technologies while actively developing software engineering and
-            product-building skills.
-          </p>
-        </article>
-      </div>
-    </section> -->
-
-    <!-- <section class="experience section" id="journey">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Journey</p>
-        <h3>Engineering + Development: a cross-disciplinary path.</h3>
-      </div>
-      <div class="timeline">
-        <article class="timeline__item glass reveal">
-          <span class="timeline__year">Foundation</span>
-          <h3>Electronics & engineering fundamentals</h3>
-          <p>
-            Started with core engineering — circuit analysis, semiconductor
-            devices, signals & systems, and analog/digital electronics.
-          </p>
-        </article>
-        <article class="timeline__item glass reveal">
-          <span class="timeline__year">Exploration</span>
-          <h3>Expanded into software development & UI/UX</h3>
-          <p>
-            Discovered a passion for building web applications and designing
-            interfaces that feel intuitive and visually immersive.
-          </p>
-        </article>
-        <article class="timeline__item glass reveal">
-          <span class="timeline__year">Growth</span>
-          <h3>Full stack development & creative frontend</h3>
-          <p>
-            Built projects with React, Next.js, Node.js, and started
-            experimenting with 3D concepts, motion design, and AI-assisted
-            development workflows.
-          </p>
-        </article>
-        <article class="timeline__item glass reveal">
-          <span class="timeline__year">Now</span>
-          <h3>Combining analytical engineering with creative experiences</h3>
-          <p>
-            Today, I enjoy combining analytical engineering thinking with creative
-            frontend experiences to build futuristic digital products.
-          </p>
-        </article>
-      </div>
-    </section> -->
-    <section class="work section" id="work">
-      <div class="section-heading reveal">
-        <p class="eyebrow">Experience</p>
-        <h2 class="hero-heading">Where I've Worked</h2>
+        <p class="eyebrow">02 · Experience</p>
+        <div class="section-heading__rule"></div>
       </div>
       <div class="work__layout reveal">
         <nav class="work__tabs" role="tablist" aria-label="Work experience tabs">
-          <button class="work__tab is-active" role="tab" aria-selected="false" data-tab="w2">Wiki NITC</button>
+          <button class="work__tab is-active" role="tab" aria-selected="true" data-tab="w1">BSERC</button>
+          <button class="work__tab" role="tab" aria-selected="false" data-tab="w2">Wiki NITC</button>
           <button class="work__tab" role="tab" aria-selected="false" data-tab="w3">ECSOC</button>
           <button class="work__tab" role="tab" aria-selected="false" data-tab="w4">GSSOC</button>
-          <button class="work__tab" role="tab" aria-selected="true" data-tab="w1">BSERC</button>
-          <!-- <button class="work__tab" role="tab" aria-selected="false" data-tab="w0">.</button> -->
-          <!-- <button class="work__tab" role="tab" aria-selected="false" data-tab="w5">.</button> -->
         </nav>
         <div class="work__panels">
 
-          <article class="work__panel" data-panel="w0">
-            <h3><span class="work__role"> </span> <span class="work__at">at</span> <a class="work__company"
-                href="coming soon" target="_blank" rel="noreferrer">Coming soon</a></h3>
-            <p class="work__date"> </p>
-            <ul class="work__list">
-              <li></li>
-              <li></li>
-              <li></li>
-            </ul>
-          </article>
-
-          <article class="work__panel" data-panel="w1">
+          <article class="work__panel is-active" data-panel="w1">
             <h3><span class="work__role">Research Intern</span> <span class="work__at">at</span> <a
                 class="work__company" href="#" target="_blank" rel="noreferrer">BSERC</a></h3>
             <p class="work__date">Nov 2025 – Jan 2026</p>
             <ul class="work__list">
               <li>Explored multiple high-impact domains including drones, aircraft design, robotics, rocketry, and space
                 systems.</li>
-              <li>Designed and simulated a 3-DOF Robotic Manipulator Arm using MATLAB & Simulink, focusing on kinematic
-                modeling, motion planning, and system visualization.
+              <li>Designed and simulated a 3-DOF robotic manipulator arm with MATLAB &amp; Simulink, focusing on
+                kinematic modeling, motion planning, and system visualization.</li>
+              <li>Developed control logic and ran simulation-based tests to validate robotic motion and task execution.
               </li>
-              <li>Developed control logic and performed simulation-based testing for validating robotic motion and task
-                execution</li>
-              <li>Collaborated in a structured research-driven environment emphasizing innovation, creativity, and
-                grassroots technology development.</li>
+              <li>Worked in a structured research environment emphasizing innovation and grassroots technology
+                development.</li>
             </ul>
           </article>
 
-          <article class="work__panel is-active" data-panel="w2">
-            <h3><span class="work__role">Wiki Admin </span> <span class="work__at">at</span> <a class="work__company"
-                href="https://www.linkedin.com/in/krishnajha29/overlay/Position/2936880416/treasury/?profileId=ACoAAEQKq40BrFjFquB9_7-wkHJmm9eqno7haQA"
-                target="_blank" rel="noreferrer"> Wiki NITC</a></h3>
-            <p class="work__date">May 2026 - Present </p>
+          <article class="work__panel" data-panel="w2">
+            <h3><span class="work__role">Wiki Admin</span> <span class="work__at">at</span> <a class="work__company"
+                href="https://github.com/bip-krishna/opencode" target="_blank" rel="noreferrer">Wiki NITC</a></h3>
+            <p class="work__date">May 2026 – Present</p>
             <ul class="work__list">
-              <li>Worked to Make the MCP installation Easier by making it integrated to a fork of Opencode</li>
-              <li>npx @bip-krishna/opencode-wiki</li>
-              <a class="work__cert" href="https://github.com/bip-krishna/opencode" target="_blank" rel="noreferrer">
-                https://github.com/bip-krishna/opencode </a>
-              <li>Created a organised hub of unstructured data by making templates </li>
-
+              <li>Made MCP installation easier for the campus wiki by integrating it into a fork of opencode —
+                <code>npx @bip-krishna/opencode-wiki</code>.
+              </li>
+              <li>Organized unstructured campus data by designing reusable content templates.</li>
+              <li>Maintaining the upstream fork at
+                <a class="work__cert" href="https://github.com/bip-krishna/opencode" target="_blank"
+                  rel="noreferrer">github.com/bip-krishna/opencode</a>.
+              </li>
             </ul>
           </article>
 
           <article class="work__panel" data-panel="w3">
-            <h3><span class="work__role">Contributor & Ambassador </span> <span class="work__at">at</span> <a
+            <h3><span class="work__role">Contributor &amp; Ambassador</span> <span class="work__at">at</span> <a
                 class="work__company" href="https://summerofcode.xyz/id-card/wbtq0niit" target="_blank"
-                rel="noreferrer">ECSOC </a></h3>
-            <p class="work__date">June 2026 - Present </p>
+                rel="noreferrer">ECSOC</a></h3>
+            <p class="work__date">June 2026 – Present</p>
             <ul class="work__list">
               <li>Contributed to open-source projects by resolving issues, implementing features, and submitting pull
-                requests using Git and GitHub.</li>
-              <li>Collaborated with maintainers and developers through code reviews, version control, and issue tracking
-              </li>
-              <li>Promotting ECSOC Community as a Ambassador at NITC</li>
+                requests with Git and GitHub.</li>
+              <li>Collaborated with maintainers through code reviews, version control, and issue tracking.</li>
+              <li>Representing and promoting the ECSOC community as an ambassador at NIT Calicut.</li>
             </ul>
           </article>
 
           <article class="work__panel" data-panel="w4">
-            <h3><span class="work__role"> </span>Contributor & Ambassador <span class="work__at">at</span> <a
-                class="work__company" href=" " target="_blank" rel="noreferrer"> GSSOC</a>
-            </h3>
-            <p class="work__date">June 2026 - Present </p>
-            <a class="work__cert" href="#" target="_blank" rel="noreferrer"> </a>
+            <h3><span class="work__role">Contributor &amp; Ambassador</span> <span class="work__at">at</span> <a
+                class="work__company" href="#" target="_blank" rel="noreferrer">GSSOC</a></h3>
+            <p class="work__date">June 2026 – Present</p>
             <ul class="work__list">
               <li>Contributed to open-source projects by resolving issues, implementing features, and submitting pull
-                requests using Git and GitHub.</li>
-              <li>Collaborated with maintainers and developers through code reviews, version control, and issue tracking
-              </li>
-              <li>Promotting GSSOC Community as a Ambassador at NITC</li>
-            </ul>
-          </article>
-
-          <article class="work__panel" data-panel="w5">
-            <h3><span class="work__role"> </span> <span class="work__at">at</span> <a class="work__company" href="#"
-                target="_blank" rel="noreferrer"> </a></h3>
-            <p class="work__date"> </p>
-            <a class="work__cert" href="#" target="_blank" rel="noreferrer"> </a>
-            <ul class="work__list">
-              <li></li>
-              <li></li>
-              <li></li>
+                requests with Git and GitHub.</li>
+              <li>Collaborated with maintainers through code reviews, version control, and issue tracking.</li>
+              <li>Representing and promoting the GSSOC community as an ambassador at NIT Calicut.</li>
             </ul>
           </article>
 
@@ -383,22 +338,22 @@
       </div>
     </section>
 
-    <section class="projects section" id="projects">
+    <section class="section projects" id="projects">
       <div class="section-heading reveal">
-        <p class="eyebrow">Featured Projects</p>
-        <!-- <h2 class="hero-heading">The portfolio centerpiece: projects curated from GitHub.</h2> -->
+        <p class="eyebrow">03 · Projects</p>
+        <div class="section-heading__rule"></div>
       </div>
       <div class="project-grid" id="project-grid"></div>
       <div class="projects__actions" id="projects-actions"></div>
     </section>
 
-    <section class="skills section" id="skills">
+    <section class="section skills" id="skills">
       <div class="section-heading reveal">
-        <p class="eyebrow">Skills & Stack</p>
-        <h2 class="hero-heading"></h2>
+        <p class="eyebrow">04 · Skills</p>
+        <div class="section-heading__rule"></div>
       </div>
       <div class="skills__layout">
-        <article class="glass skill-panel reveal">
+        <article class="skill-panel reveal">
           <h3>Software Development</h3>
           <div class="pill-row">
             <span class="pill">React.js</span>
@@ -410,33 +365,33 @@
             <span class="pill">REST APIs</span>
           </div>
         </article>
-        <article class="glass skill-panel reveal">
-          <h3>Electronics & Engineering</h3>
+        <article class="skill-panel reveal">
+          <h3>Electronics &amp; Engineering</h3>
           <div class="pill-row">
             <span class="pill">Semiconductor Devices</span>
             <span class="pill">Analog Electronics</span>
             <span class="pill">Digital Electronics</span>
             <span class="pill">Communication Systems</span>
-            <span class="pill">MOSFET & BJT</span>
-            <span class="pill">Signals & Systems</span>
+            <span class="pill">MOSFET &amp; BJT</span>
+            <span class="pill">Signals &amp; Systems</span>
             <span class="pill">Circuit Analysis</span>
           </div>
         </article>
-        <article class="glass skill-panel reveal">
-          <h3>Creative & UI/UX</h3>
+        <article class="skill-panel reveal">
+          <h3>Creative &amp; Interface</h3>
           <div class="pill-row">
-            <span class="pill">UI/UX Design</span>
-            <span class="pill">Glassmorphism</span>
+            <span class="pill">UI Engineering</span>
+            <span class="pill">Design Systems</span>
             <span class="pill">Motion Design</span>
             <span class="pill">3D Web Concepts</span>
             <span class="pill">Figma</span>
-            <span class="pill">Interactive Storytelling</span>
+            <span class="pill">Interactive Prototyping</span>
           </div>
         </article>
-        <article class="glass skill-panel reveal">
-          <h3>Tools & Platforms</h3>
+        <article class="skill-panel reveal">
+          <h3>Tools &amp; Platforms</h3>
           <div class="pill-row">
-            <span class="pill">Git & GitHub</span>
+            <span class="pill">Git &amp; GitHub</span>
             <span class="pill">VS Code</span>
             <span class="pill">Vercel</span>
             <span class="pill">Firebase</span>
@@ -447,82 +402,200 @@
       </div>
     </section>
 
-    <section class="achievements section" id="interests">
+    <section class="section teaser" id="achievements">
       <div class="section-heading reveal">
-        <p class="eyebrow">Technical Interests</p>
-        <h2 class="hero-heading">Areas I actively explore and build in.</h2>
+        <p class="eyebrow">05 · Achievements</p>
+        <div class="section-heading__rule"></div>
       </div>
-      <div class="achievement-grid">
-        <article class="achievement glass reveal">
-          <strong>Full Stack Dev</strong>
-          <p>Building end-to-end web applications with modern frameworks and robust backend APIs.</p>
+      <div class="teaser__grid">
+        <article class="teaser__item reveal">
+          <p class="teaser__kicker">Academic</p>
+          <h3>JEE Advanced qualifier</h3>
+          <p>Cleared the national-level engineering entrance, now studying at NIT Calicut.</p>
         </article>
-        <article class="achievement glass reveal">
-          <strong>Semiconductors</strong>
-          <p>Exploring electronic device behavior, MOS capacitor analysis, and communication system concepts.</p>
+        <article class="teaser__item reveal">
+          <p class="teaser__kicker">Research</p>
+          <h3>BSERC Research Intern</h3>
+          <p>Robotics, rocketry, and space systems — built and simulated a 3-DOF robotic arm in MATLAB.</p>
         </article>
-        <article class="achievement glass reveal">
-          <strong>Embedded Systems</strong>
-          <p>Bridging hardware and software through Arduino, sensor interfaces, and embedded prototyping.</p>
+        <article class="teaser__item reveal">
+          <p class="teaser__kicker">Community</p>
+          <h3>Lead roles on campus</h3>
+          <p>Wiki NITC admin and contributor/ambassador for ECSOC and GSSOC open-source programs.</p>
         </article>
-
-        <article class="achievement glass reveal">
-          <strong>Interactive Web</strong>
-          <p>Crafting immersive web experiences with 3D concepts, motion design, and cursor-reactive interfaces.</p>
-        </article>
-        <!-- <article class="achievement glass reveal">
-          <strong>Human-Centered UX</strong>
-          <p>Designing intuitive, accessible interfaces that prioritize user experience and engagement.</p>
-        </article> -->
-        <!-- <article class="achievement glass reveal">
-          <strong>Frontend Architecture</strong>
-          <p>Building scalable, maintainable frontend systems with modern component-driven patterns.</p>
-        </article> -->
-        <!-- <article class="achievement glass reveal">
-          <strong>Digital Products</strong>
-          <p>End-to-end product engineering from concept to polished, deployable digital experiences.</p>
-        </article> -->
+      </div>
+      <div class="teaser__actions reveal">
+        <a class="button button--ghost" href="achievements.html">View all achievements</a>
       </div>
     </section>
 
-    <section class="contact section" id="contact">
+    <section class="section contact" id="contact">
       <div class="section-heading reveal">
-        <p class="eyebrow">Contact</p>
-        <h4>Open to collaborations, internships, and exciting opportunities.</h4>
+        <p class="eyebrow">06 · Contact</p>
+        <div class="section-heading__rule"></div>
       </div>
-      <div class="contact__layout">
-        <article class="contact__card glass reveal">
-          <p>Email Me at :</p>
-          <p>
-            <strong class="highlight"><a
-                href="mailto:krishnakumar789612@gmail.com">krishnakumar789612@gmail.com</a></strong>
-          </p>
+      <div class="contact__card reveal">
+        <p class="contact__label">Email</p>
+        <a class="contact__email" href="mailto:krishnakumar789612@gmail.com">krishnakumar789612@gmail.com</a>
+        <p class="contact__hint">Open to collaborations, internships, and research opportunities.</p>
+        <div class="contact__links">
+          <!-- GitHub with Preview Hovercard (Top) -->
+          <div class="social-preview-wrapper" data-platform="github">
+            <a class="button button--ghost social-btn" href="https://github.com/bip-krishna" target="_blank"
+              rel="noreferrer" aria-label="GitHub profile">
+              <svg class="social-btn__icon" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+              </svg>
+              <span>GitHub</span>
+            </a>
 
-        </article>
+            <!-- GitHub Preview Hovercard (Top) -->
+            <div class="hovercard hovercard--top hovercard--github" role="tooltip" aria-hidden="true">
+              <div class="hovercard__caret"></div>
+              <div class="hovercard__banner hovercard__banner--github">
+                <div class="hovercard__badge">
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+                  <span>bip-krishna</span>
+                </div>
+              </div>
 
+              <div class="hovercard__body">
+                <div class="hovercard__profile-row">
+                  <img class="hovercard__avatar" src="https://github.com/bip-krishna.png" alt="Krishna Jha" width="48" height="48" loading="lazy" />
+                  <div class="hovercard__names">
+                    <strong class="hovercard__name gh-card-name">Krishna Jha</strong>
+                    <span class="hovercard__handle gh-card-handle">@bip-krishna</span>
+                  </div>
+                </div>
+
+                <p class="hovercard__bio gh-card-bio">ECE at NIT Calicut ('29). Building full-stack systems, robotics simulations, and open-source tooling.</p>
+
+                <div class="hovercard__meta-line">
+                  <span class="hovercard__meta-item">
+                    <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                    <span class="gh-card-location">NIT Calicut, India</span>
+                  </span>
+                </div>
+
+                <div class="hovercard__stats-grid">
+                  <div class="hovercard__stat">
+                    <span class="hovercard__stat-val gh-card-repos">12+</span>
+                    <span class="hovercard__stat-lbl">Repos</span>
+                  </div>
+                  <div class="hovercard__stat">
+                    <span class="hovercard__stat-val gh-card-followers">18+</span>
+                    <span class="hovercard__stat-lbl">Followers</span>
+                  </div>
+                  <div class="hovercard__stat">
+                    <span class="hovercard__stat-val gh-card-stars">★ 5+</span>
+                    <span class="hovercard__stat-lbl">Stars</span>
+                  </div>
+                </div>
+
+                <div class="hovercard__pinned-preview">
+                  <span class="hovercard__pinned-title">Featured Repos</span>
+                  <div class="hovercard__chips">
+                    <span class="hovercard__chip"><span class="hovercard__chip-dot" style="background:#3572A5"></span>Token-System</span>
+                    <span class="hovercard__chip"><span class="hovercard__chip-dot" style="background:#f1e05a"></span>IC-KIT</span>
+                    <span class="hovercard__chip"><span class="hovercard__chip-dot" style="background:#3178c6"></span>Repolens-AI</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="hovercard__footer">
+                <a class="hovercard__cta hovercard__cta--github" href="https://github.com/bip-krishna" target="_blank" rel="noreferrer">
+                  <span>Open GitHub Profile</span>
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- LinkedIn with Preview Hovercard (Top) -->
+          <div class="social-preview-wrapper" data-platform="linkedin">
+            <a class="button button--ghost social-btn" href="https://www.linkedin.com/in/krishnajha29/" target="_blank"
+              rel="noreferrer" aria-label="LinkedIn profile">
+              <svg class="social-btn__icon social-btn__icon--linkedin" viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+                <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.6 1.6 0 1 0 1.6 1.6 1.6 1.6 0 0 0-1.6-1.6z"/>
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+
+            <!-- LinkedIn Preview Hovercard (Top) -->
+            <div class="hovercard hovercard--top hovercard--linkedin" role="tooltip" aria-hidden="true">
+              <div class="hovercard__caret"></div>
+              <div class="hovercard__banner hovercard__banner--linkedin">
+                <div class="hovercard__badge hovercard__badge--linkedin">
+                  <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.6 1.6 0 1 0 1.6 1.6 1.6 1.6 0 0 0-1.6-1.6z"/></svg>
+                  <span>in/krishnajha29</span>
+                </div>
+              </div>
+
+              <div class="hovercard__body">
+                <div class="hovercard__profile-row">
+                  <div class="hovercard__avatar-wrap">
+                    <img class="hovercard__avatar" src="https://github.com/bip-krishna.png" alt="Krishna Jha" width="48" height="48" loading="lazy" />
+                    <span class="hovercard__in-badge">in</span>
+                  </div>
+                  <div class="hovercard__names">
+                    <div class="hovercard__name-line">
+                      <strong class="hovercard__name">Krishna Jha</strong>
+                      <span class="hovercard__check-badge" title="Verified Profile">✓</span>
+                    </div>
+                    <span class="hovercard__handle">Krishna Kumar Jha · 1st</span>
+                  </div>
+                </div>
+
+                <p class="hovercard__bio">Electronics &amp; Communication Engineering at <strong>NIT Calicut</strong> (2025–2029) · Research Intern at <strong>BSERC</strong>.</p>
+
+                <div class="hovercard__credentials">
+                  <div class="hovercard__credential">
+                    <span class="hovercard__cred-icon">🏛️</span>
+                    <span>National Institute of Technology Calicut</span>
+                  </div>
+                  <div class="hovercard__credential">
+                    <span class="hovercard__cred-icon">🚀</span>
+                    <span>Research Intern · BSERC (Robotics &amp; Space)</span>
+                  </div>
+                  <div class="hovercard__credential">
+                    <span class="hovercard__cred-icon">⚡</span>
+                    <span>Open Source Ambassador · Wiki NITC Admin</span>
+                  </div>
+                </div>
+
+                <div class="hovercard__meta-line hovercard__meta-line--linkedin">
+                  <span>📍 Calicut, Kerala, India</span>
+                  <span class="hovercard__dot">•</span>
+                  <span class="hovercard__conn">500+ connections</span>
+                </div>
+              </div>
+
+              <div class="hovercard__footer">
+                <a class="hovercard__cta hovercard__cta--linkedin" href="https://www.linkedin.com/in/krishnajha29/" target="_blank" rel="noreferrer">
+                  <span>Connect on LinkedIn</span>
+                  <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer reveal">
-    <div class="site-footer__content">
-      <p>&copy;
-        <script>document.write(new Date().getFullYear())</script> Krishna Jha. All rights reserved.
-      </p>
-    </div>
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Krishna Jha. Built with HTML, CSS, and JavaScript.</p>
   </footer>
 
   <div class="modal" id="project-modal" aria-hidden="true">
     <div class="modal__backdrop" data-close="true"></div>
-    <div class="modal__panel glass">
-      <button class="modal__close" id="modal-close" aria-label="Close project details">
-        ×
-      </button>
+    <div class="modal__panel">
+      <button class="modal__close" id="modal-close" aria-label="Close project details">×</button>
       <div id="modal-content"></div>
     </div>
   </div>
 
-  <script src="./script.js"></script>
+  <script src="./script.js?v=5.0"></script>
 </body>
 
 </html>
