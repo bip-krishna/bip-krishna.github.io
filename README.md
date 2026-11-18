@@ -1,26 +1,23 @@
-# bip-krishna.github.io
+# Krishna Jha · Portfolio
 
-Personal portfolio and profile site for **Krishna Jha** — ECE student at NIT Calicut, full-stack developer, and electronics enthusiast.
+The source for my personal portfolio at [krizn.me](https://krizn.me). This checkout serves its HTML, CSS, and JavaScript directly.
 
-Built with Next.js, Framer Motion, Tailwind CSS, and a custom particle canvas. Features a modern dark-themed UI with scroll-driven animations, glassmorphism components, and ambient visual effects.
+[Live site](https://krizn.me) · [Quick start](#quick-start) · [GitHub profile](https://github.com/bip-krishna)
 
-## Tech Stack
-
-- **Framework:** Next.js 16 / React 19
-- **Styling:** Tailwind CSS v4, PostCSS
-- **Animation:** Framer Motion, Lenis (smooth scroll)
-- **Icons:** Lucide React
-- **Runtime:** Node.js (CommonJS)
-
-## Local Development
+## Quick start
 
 ```bash
-git clone https://github.com/bip-krishna/bip-krishna.github.io.git
-cd bip-krishna.github.io
-npm install
-npm run dev
+python3 -m http.server 8000
 ```
 
-## Deployment
+Open [localhost:8000](http://localhost:8000).
 
-Deployed via GitHub Pages. The `gh-pages` branch serves the built output. Run `npm run build` and deploy the `out/` directory.
+## Project files
+
+| File | Purpose |
+| --- | --- |
+| [`index.html`](index.html) | Main portfolio page |
+| [`achievements.html`](achievements.html) | Achievements page |
+| [`styles.css`](styles.css) | Layout and styling |
+| [`script.js`](script.js) | Browser interactions |
+| [`CNAME`](CNAME) | Custom domain for GitHub Pages |
